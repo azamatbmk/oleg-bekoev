@@ -1,0 +1,138 @@
+.about {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--color-bg);
+  position: relative;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.title {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.title em {
+  font-style: normal;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.timeline {
+  position: relative;
+  padding-left: var(--spacing-xl);
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-border),
+    var(--color-accent),
+    var(--color-border)
+  );
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: var(--spacing-xl);
+  opacity: 0;
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.timelineItem:nth-child(1) { animation-delay: 0.1s; }
+.timelineItem:nth-child(2) { animation-delay: 0.2s; }
+.timelineItem:nth-child(3) { animation-delay: 0.3s; }
+.timelineItem:nth-child(4) { animation-delay: 0.4s; }
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: calc(-1 * var(--spacing-xl) + 1px);
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  transition: all var(--transition-normal);
+}
+
+.timelineItem:hover .timelineDot {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 12px rgba(196, 168, 130, 0.4);
+}
+
+.timelineContent {
+  padding-left: var(--spacing-md);
+}
+
+.institution {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .timeline {
+    padding-left: var(--spacing-lg);
+  }
+
+  .timelineDot {
+    left: calc(-1 * var(--spacing-lg) + 1px);
+  }
+
+  .institution {
+    font-size: 1rem;
+  }
+}
