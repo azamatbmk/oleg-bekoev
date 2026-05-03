@@ -16,14 +16,13 @@ export default function Hero() {
           </div>
 
           <div className={styles.imageWrapper}>
-            <Image
+            <img
               src="/images/doctor.png"
               alt="Бекоев Олег — врач психиатр"
               className={styles.doctorImage}
               width={800}
               height={1200}
-              sizes="(max-width: 768px) 90vw, 45vw"
-              priority
+              loading="eager"
             />
           </div>
         </div>
