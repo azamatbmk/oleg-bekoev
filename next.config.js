@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: 'dist',
   images: {
     qualities: [75, 100],
   },
