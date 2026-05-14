@@ -19,7 +19,7 @@
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: var(--spacing-xl);
   align-items: center;
   min-height: 80vh;
@@ -99,7 +99,7 @@
 }
 
 .doctorImage {
-  max-height: 75vh;
+  height: 90vh;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
@@ -186,7 +186,7 @@
   }
 
   .doctorImage {
-    max-height: 50vh;
+    max-height: 70vh;
   }
 
   .specialty {

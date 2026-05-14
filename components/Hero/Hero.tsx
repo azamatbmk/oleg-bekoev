@@ -34,14 +34,20 @@ export default function Hero() {
           </div>
 
           <div className={styles.imageWrapper}>
-            <img
-              src="/images/doctor.png"
-              alt="Бекоев Олег — врач психиатр"
-              className={styles.doctorImage}
-              width={800}
-              height={1200}
-              loading="eager"
-            />
+            <picture>
+              <source srcSet="/images/doctor.avif" type="image/avif" />
+              <source srcSet="/images/doctor.webp" type="image/webp" />
+              <img
+                src="/images/doctor.png"
+                alt="Бекоев Олег — врач психиатр"
+                className={styles.doctorImage}
+                width={1920}
+                height={1513}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </picture>
           </div>
         </div>
       </div>
