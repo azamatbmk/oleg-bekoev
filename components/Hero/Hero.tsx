@@ -31,6 +31,10 @@ export default function Hero() {
               </svg>
               Позвонить
             </a>
+
+            <div className={styles.scrollIndicator}>
+              <div className={styles.scrollLine} />
+            </div>
           </div>
 
           <div className={styles.imageWrapper}>
@@ -50,10 +54,6 @@ export default function Hero() {
             </picture>
           </div>
         </div>
-      </div>
-
-      <div className={styles.scrollIndicator}>
-        <div className={styles.scrollLine} />
       </div>
     </section>
   );
