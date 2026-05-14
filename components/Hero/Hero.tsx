@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -35,14 +34,13 @@ export default function Hero() {
           </div>
 
           <div className={styles.imageWrapper}>
-            <Image
-              src="/doctor.png"
+            <img
+              src="/images/doctor.png"
               alt="Бекоев Олег — врач психиатр"
               className={styles.doctorImage}
-              width={1024}
-              height={1280}
-              sizes="(max-width: 768px) 90vw, 45vw"
-              priority
+              width={800}
+              height={1200}
+              loading="eager"
             />
           </div>
         </div>
