@@ -7,7 +7,7 @@ export default function About() {
         <div className={styles.header}>
           <span className={styles.label}>Образование и опыт</span>
           <h2 className={styles.title}>
-            Является <em>квалифицированным специалистом</em> в разграничении психических расстройств и психологических/социальных проблем.
+            Специалист в современной наркологии. Опыт работы <em>более 5 лет</em> с различной степенью тяжести алкоголизма и наркомании.
           </h2>
         </div>
 
@@ -16,7 +16,7 @@ export default function About() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <h3 className={styles.institution}>
-                Санкт-Петербургский государственный педиатрический университет
+                ФГБУ «НМИЦ психиатрии и наркологии им. В.П. Сербского»  г. Москва
               </h3>
               <p className={styles.description}>
                 Окончил с отличием, получил фундаментальную медицинскую подготовку
@@ -28,7 +28,7 @@ export default function About() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <h3 className={styles.institution}>
-                Северо-западный государственный медицинский университет имени И.М. Мечникова
+                Северо-Осетинскую государственную медицинскую академию г. Владикавказ
               </h3>
               <p className={styles.description}>
                 Прошел обучение по программе ординатуры на кафедре психиатрии и наркологии
@@ -40,10 +40,10 @@ export default function About() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <h3 className={styles.institution}>
-                Подтверждение диплома в ЕС
+                Подтверждение диплома и аккредитации - Минздравом России
               </h3>
               <p className={styles.description}>
-                Подтверждает диплом врача в Европейском Союзе
+                Подтверждает диплом врача в странах СНГ
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function About() {
                 Многопрофильные медицинские учреждения
               </h3>
               <p className={styles.description}>
-                Работает в многопрофильных медицинских учреждениях Санкт-Петербурга
+                Опыт работы на скорой помощи и в реанимационном отделении.
               </p>
             </div>
           </div>

@@ -72,8 +72,8 @@ export default function Book() {
             <div className={styles.contacts}>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Телефон</span>
-                <a href="tel:+78120000000" className={styles.contactValue}>
-                  +7 (812) 000-00-00
+                <a href="tel:+79888774992" className={styles.contactValue}>
+                  +7(988)-877-4992
                 </a>
               </div>
               <div className={styles.contactItem}>

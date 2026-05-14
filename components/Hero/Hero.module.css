@@ -50,6 +50,46 @@
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
+.callButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 300px;
+  min-height: 50px;
+  padding: 16px 24px;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  animation: fadeInUp 0.8s ease-out 0.55s both;
+  align-self: flex-start;
+  margin-top: 50px;
+}
+
+.callButton:hover {
+  background-color: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(196, 168, 130, 0.25);
+}
+
+.callButton:focus-visible {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: 3px;
+}
+
+.callIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
 .imageWrapper {
   position: relative;
   display: flex;
@@ -151,5 +191,10 @@
 
   .specialty {
     margin: 0 auto;
+  }
+
+  .callButton {
+    align-self: stretch;
+    max-width: none;
   }
 }
