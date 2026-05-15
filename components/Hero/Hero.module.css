@@ -60,7 +60,7 @@
   min-height: 50px;
   padding: 16px 24px;
   background-color: var(--color-accent);
-  color: var(--color-bg);
+  color: var(--color-on-accent);
   border: none;
   border-radius: var(--radius-sm);
   font-size: 1rem;
@@ -76,7 +76,7 @@
 .callButton:hover {
   background-color: var(--color-accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(196, 168, 130, 0.25);
+  box-shadow: 0 8px 24px var(--color-accent-glow);
 }
 
 .callButton:focus-visible {
@@ -102,7 +102,7 @@
   height: 90vh;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 20px 50px rgba(8, 195, 220, 0.22));
   transition: transform var(--transition-slow);
 }
 

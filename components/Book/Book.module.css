@@ -133,7 +133,7 @@
 .formInput:focus,
 .formTextarea:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(196, 168, 130, 0.1);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
 }
 
 .formTextarea {
@@ -156,7 +156,7 @@
   width: 100%;
   padding: 16px 24px;
   background-color: var(--color-accent);
-  color: var(--color-bg);
+  color: var(--color-on-accent);
   border: none;
   border-radius: var(--radius-sm);
   font-family: var(--font-main);
@@ -173,7 +173,7 @@
 .submitButton:hover:not(:disabled) {
   background-color: var(--color-accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(196, 168, 130, 0.25);
+  box-shadow: 0 8px 24px var(--color-accent-glow);
 }
 
 .submitButton:disabled {
@@ -184,8 +184,8 @@
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(10, 10, 10, 0.3);
-  border-top-color: var(--color-bg);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: var(--color-on-accent);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -204,7 +204,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: rgba(196, 168, 130, 0.15);
+  background-color: var(--color-accent-soft);
   display: flex;
   align-items: center;
   justify-content: center;

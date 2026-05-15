@@ -36,11 +36,11 @@ export async function POST(request: Request) {
     );
   }
 
-  const host = process.env.SMTP_HOST ?? "smtp.yandex.ru";
-  const port = Number(process.env.SMTP_PORT ?? "465");
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASSWORD;
-  const mailTo = process.env.MAIL_TO ?? user;
+  const host = (process.env.SMTP_HOST ?? "smtp.mail.ru").trim();
+  const port = Number((process.env.SMTP_PORT ?? "465").trim());
+  const user = process.env.SMTP_USER?.trim();
+  const pass = process.env.SMTP_PASSWORD?.trim();
+  const mailTo = process.env.MAIL_TO?.trim() || user;
 
   if (!user || !pass || !mailTo) {
     console.error("contact: отсутствуют SMTP_USER, SMTP_PASSWORD или MAIL_TO");

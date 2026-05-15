@@ -87,7 +87,7 @@
 
 .timelineItem:hover .timelineDot {
   background-color: var(--color-accent);
-  box-shadow: 0 0 12px rgba(196, 168, 130, 0.4);
+  box-shadow: 0 0 12px var(--color-accent-glow);
 }
 
 .timelineContent {
