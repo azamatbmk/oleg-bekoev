@@ -3,7 +3,6 @@ import styles from "./SiteHeader.module.css";
 const links = [
   { href: "#services", label: "Услуги" },
   { href: "#about", label: "О враче" },
-  { href: "#specializations", label: "Специализация" },
   { href: "#book", label: "Запись" },
 ] as const;
 
