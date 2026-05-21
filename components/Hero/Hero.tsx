@@ -13,9 +13,9 @@ export default function Hero() {
               Врач психиатр-нарколог
             </p>
             <a
-              href="tel:+78120000000"
+              href="tel:+79888774992"
               className={styles.callButton}
-              aria-label="Позвонить: +7 812 000 00 00"
+              aria-label="Позвонить: +7 (988) 877-49-92"
             >
               <svg
                 className={styles.callIcon}

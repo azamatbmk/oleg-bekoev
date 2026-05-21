@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero/Hero";
+import Services from "@/components/Services/Services";
 import About from "@/components/About/About";
 import Specializations from "@/components/Specializations/Specializations";
 import Book from "@/components/Book/Book";
@@ -9,6 +10,7 @@ export default function Home() {
     <main>
       <SiteHeader />
       <Hero />
+      <Services />
       <About />
       <Specializations />
       <Book />
