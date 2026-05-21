@@ -94,7 +94,7 @@ export default function Book() {
                 </span>
               </div>
               <div className={styles.contactItem}>
-                <span className={styles.contactLabel}>Instagram</span>
+                <span className={styles.contactLabel}>Другие соцсети</span>
                 <a
                   href={INSTAGRAM_URL}
                   className={styles.contactValue}
