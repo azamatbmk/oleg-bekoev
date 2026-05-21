@@ -40,7 +40,8 @@ export async function POST(request: Request) {
   const port = Number((process.env.SMTP_PORT ?? "465").trim());
   const user = process.env.SMTP_USER?.trim();
   const pass = process.env.SMTP_PASSWORD?.trim();
-  const mailTo = process.env.MAIL_TO?.trim() || user;
+  const mailTo =
+    process.env.MAIL_TO?.trim() || "Bekoev_2003@mail.ru";
 
   if (!user || !pass || !mailTo) {
     console.error("contact: отсутствуют SMTP_USER, SMTP_PASSWORD или MAIL_TO");

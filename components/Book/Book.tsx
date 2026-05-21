@@ -78,12 +78,15 @@ export default function Book() {
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Email</span>
-                <a href="mailto:info@bekoev.ru" className={styles.contactValue}>
-                  info@bekoev.ru
+                <a
+                  href="mailto:Bekoev_2003@mail.ru"
+                  className={styles.contactValue}
+                >
+                  Bekoev_2003@mail.ru
                 </a>
               </div>
               <div className={styles.contactItem}>
-                <span className={styles.contactLabel}>Адрес</span>
+                <span className={styles.contactLabel}>Город</span>
                 <span className={styles.contactValue}>
                   Владикавказ
                 </span>
