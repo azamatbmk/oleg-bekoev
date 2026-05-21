@@ -7,7 +7,7 @@ export default function About() {
         <div className={styles.header}>
           <span className={styles.label}>Образование и опыт</span>
           <h2 className={styles.title}>
-            Специалист в современной наркологии. Опыт работы <em>более 5 лет</em> с различной степенью тяжести алкоголизма и наркомании.
+            Специалист в современной наркологии. Опыт работы <em>более 5 лет</em> с различными степенями тяжести алкоголизма и наркомании.
           </h2>
         </div>
 
@@ -16,10 +16,10 @@ export default function About() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <h3 className={styles.institution}>
-                ФГБУ «НМИЦ психиатрии и наркологии им. В.П. Сербского»  г. Москва
+                ФГБУ «НМИЦ психиатрии и наркологии им. В.П. Сербского», г. Москва
               </h3>
               <p className={styles.description}>
-                Прошел обучение по программе ординатуры на кафедре психиатрии и наркологии
+                Прошёл обучение по программе ординатуры на кафедре психиатрии и наркологии
               </p>
             </div>
           </div>
@@ -28,7 +28,7 @@ export default function About() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <h3 className={styles.institution}>
-                Северо-Осетинскую государственную медицинскую академию г. Владикавказ
+                Северо-Осетинская государственная медицинская академия, г. Владикавказ
               </h3>
               <p className={styles.description}>
                 Окончил с отличием, получил фундаментальную медицинскую подготовку
@@ -40,7 +40,7 @@ export default function About() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <h3 className={styles.institution}>
-                Подтверждение диплома и аккредитации - Минздравом России
+                Подтверждение диплома и аккредитации — Минздравом России
               </h3>
               {/* <p className={styles.description}>
                 Подтверждает диплом врача в странах СНГ
@@ -55,7 +55,7 @@ export default function About() {
                 Многопрофильные медицинские учреждения
               </h3>
               <p className={styles.description}>
-                Опыт работы на скорой помощи и в реанимационном отделении.
+                Опыт работы в службе скорой помощи и в реанимационном отделении.
               </p>
             </div>
           </div>

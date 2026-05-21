@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./Book.module.css";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/phone";
 
 export default function Book() {
   const [formData, setFormData] = useState({
@@ -72,12 +73,12 @@ export default function Book() {
             <div className={styles.contacts}>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Телефон</span>
-                <a href="tel:+79888774992" className={styles.contactValue}>
-                  +7(988)-877-4992
+                <a href={PHONE_TEL} className={styles.contactValue}>
+                  {PHONE_DISPLAY}
                 </a>
               </div>
               <div className={styles.contactItem}>
-                <span className={styles.contactLabel}>Email</span>
+                <span className={styles.contactLabel}>Электронная почта</span>
                 <a
                   href="mailto:Bekoev_2003@mail.ru"
                   className={styles.contactValue}
@@ -137,7 +138,7 @@ export default function Book() {
                     onChange={handleChange}
                     required
                     className={styles.formInput}
-                    placeholder="+7 (999) 999-99-99"
+                    placeholder="+7 (988) 877-49-92"
                   />
                 </div>
 

@@ -1,4 +1,5 @@
 import styles from "./Hero.module.css";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/phone";
 
 export default function Hero() {
   return (
@@ -10,12 +11,12 @@ export default function Hero() {
               Олег Бекоев
             </h1>
             <p className={styles.specialty}>
-              Врач психиатр-нарколог
+              Врач-психиатр-нарколог
             </p>
             <a
-              href="tel:+79888774992"
+              href={PHONE_TEL}
               className={styles.callButton}
-              aria-label="Позвонить: +7 (988) 877-49-92"
+              aria-label={`Позвонить: ${PHONE_DISPLAY}`}
             >
               <svg
                 className={styles.callIcon}
@@ -43,7 +44,7 @@ export default function Hero() {
               <source srcSet="/images/doctor.webp" type="image/webp" />
               <img
                 src="/images/doctor.png"
-                alt="Бекоев Олег — врач психиатр"
+                alt="Олег Бекоев — врач-психиатр-нарколог"
                 className={styles.doctorImage}
                 width={1920}
                 height={1513}
