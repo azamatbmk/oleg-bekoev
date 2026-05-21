@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./Book.module.css";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/phone";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/social";
 
 export default function Book() {
   const [formData, setFormData] = useState({
@@ -91,6 +92,17 @@ export default function Book() {
                 <span className={styles.contactValue}>
                   Владикавказ
                 </span>
+              </div>
+              <div className={styles.contactItem}>
+                <span className={styles.contactLabel}>Instagram</span>
+                <a
+                  href={INSTAGRAM_URL}
+                  className={styles.contactValue}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @{INSTAGRAM_HANDLE}
+                </a>
               </div>
             </div>
           </div>
