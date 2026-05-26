@@ -63,9 +63,11 @@ async function submitViaWeb3Forms(
     body: JSON.stringify({
       access_key: WEB3FORMS_KEY,
       subject: `Заявка с сайта: ${payload.name}`,
-      from_name: payload.name,
+      from_name: "Сайт — Олег Бекоев",
+      name: payload.name,
       phone: payload.phone,
       message: payload.message || "—",
+      botcheck: false,
     }),
   });
 
