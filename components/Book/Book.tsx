@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./Book.module.css";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/phone";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/social";
+import { submitContact } from "@/lib/submitContact";
 
 export default function Book() {
   const [formData, setFormData] = useState({
@@ -30,20 +31,14 @@ export default function Book() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      const result = await submitContact({
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        message: formData.message.trim(),
       });
 
-      const data = (await res.json().catch(() => ({}))) as {
-        error?: string;
-      };
-
-      if (!res.ok) {
-        setSubmitError(
-          data.error ?? "Не удалось отправить заявку. Попробуйте позже.",
-        );
+      if (!result.ok) {
+        setSubmitError(result.error);
         return;
       }
 
