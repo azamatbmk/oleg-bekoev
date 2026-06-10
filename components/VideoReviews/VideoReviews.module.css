@@ -1,0 +1,143 @@
+.reviews {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+
+.subtitle {
+  margin-top: var(--spacing-md);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.player iframe,
+.player .video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.player .video {
+  object-fit: cover;
+  background-color: #000;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.4;
+  padding: 0 var(--spacing-xs);
+}
+
+.empty {
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-card-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 16px 40px rgba(8, 195, 220, 0.12);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews {
+    padding: var(--spacing-xl) 0;
+  }
+}
