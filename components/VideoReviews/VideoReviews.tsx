@@ -11,15 +11,15 @@ export default function VideoReviews() {
     .filter((item) => item.source !== null);
 
   return (
-    <section className={styles.reviews} id="reviews">
+    <section className={styles.reviews} id="videos">
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.label}>Отзывы</span>
+          <span className={styles.label}>Видео</span>
           <h2 className={styles.title}>
-            Видеоотзывы <em>пациентов</em>
+            Методики лечения и <em>профессиональный опыт</em>
           </h2>
           <p className={styles.subtitle}>
-            Реальные истории людей, которым помогла консультация и лечение.
+            О подходе к терапии, навыках и методах работы с пациентами.
           </p>
         </div>
 
@@ -39,12 +39,12 @@ export default function VideoReviews() {
                       controls
                       playsInline
                       preload="metadata"
-                      aria-label={`Видеоотзыв ${index + 1}`}
+                      aria-label={`Видео ${index + 1}`}
                     />
                   ) : (
                     <iframe
                       src={item.source!.src}
-                      title={`Видеоотзыв ${index + 1}`}
+                      title={`Видео ${index + 1}`}
                       loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
@@ -56,7 +56,7 @@ export default function VideoReviews() {
           </ul>
         ) : (
           <p className={styles.empty}>
-            Видеоотзывы скоро появятся в этом разделе.
+            Видео скоро появятся в этом разделе.
           </p>
         )}
       </div>
