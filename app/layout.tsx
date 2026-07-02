@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Олег Бекоев — врач-психиатр, нарколог, психотерапевт",
   description:
     "Квалифицированный специалист в разграничении психических расстройств и психологических проблем. Владикавказ.",
+  verification: {
+    yandex: "bc95254fc56ec499",
+  },
 };
 
 export default function RootLayout({
