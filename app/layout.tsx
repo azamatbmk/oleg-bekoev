@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import JsonLd from "@/components/JsonLd/JsonLd";
+import {
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,9 +16,48 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Олег Бекоев — врач-психиатр, нарколог, психотерапевт",
-  description:
-    "Квалифицированный специалист в разграничении психических расстройств и психологических проблем. Владикавказ.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s | Олег Бекоев",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: SITE_URL,
+    siteName: "Олег Бекоев — врач-психиатр, нарколог",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/images/doctor.png",
+        width: 1920,
+        height: 1513,
+        alt: "Олег Бекоев — врач-психиатр, нарколог во Владикавказе",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/images/doctor.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   verification: {
     yandex: "bc95254fc56ec499",
   },
@@ -24,7 +70,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        <JsonLd />
+        {children}
+      </body>
     </html>
   );
 }
