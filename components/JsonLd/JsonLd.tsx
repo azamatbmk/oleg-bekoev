@@ -1,3 +1,4 @@
+import { faqItems } from "@/lib/faq";
 import { PHONE_E164 } from "@/lib/phone";
 import {
   CITY,
@@ -46,6 +47,18 @@ export default function JsonLd() {
           "Psychotherapy",
         ],
         sameAs: [INSTAGRAM_URL],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE_URL}/#faq`,
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
       },
     ],
   };

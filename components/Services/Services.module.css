@@ -95,6 +95,16 @@
   color: var(--color-accent);
 }
 
+.intro {
+  margin-top: var(--spacing-md);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
 .grid {
   list-style: none;
   display: grid;

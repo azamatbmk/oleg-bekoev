@@ -37,6 +37,14 @@
   font-weight: 500;
 }
 
+.intro {
+  margin-top: var(--spacing-md);
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  max-width: 720px;
+}
+
 .timeline {
   position: relative;
   padding-left: var(--spacing-xl);
