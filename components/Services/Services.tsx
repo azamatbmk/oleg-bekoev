@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Services.module.css";
 
 const services = [
@@ -14,6 +15,7 @@ const services = [
     description:
       "Вывод из запоя на дому во Владикавказе. Оценка состояния: ЭКГ, давление, пульс, глюкоза. Терапия подбирается по тяжести.",
     price: "от 4 500 — 9 000 ₽",
+    href: "/vyvod-iz-zapoya",
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ const services = [
     description:
       "Кодирование от алкоголя во Владикавказе. Срок и препарат подбираются индивидуально после консультации нарколога.",
     price: "от 8 000 — 12 000 ₽ / год",
+    href: "/kodirovanie",
   },
   {
     id: 4,
@@ -29,6 +32,7 @@ const services = [
     description:
       "Снятие похмелья и ломки на дому. Комплексная помощь при абстинентном синдроме с восстановлением показателей.",
     price: "от 4 500 — 9 000 ₽",
+    href: "/narkolog-na-dom",
   },
   {
     id: 5,
@@ -63,7 +67,10 @@ export default function Services() {
             </p>
             <p className={styles.bannerSub}>
               Экстренная наркологическая помощь: вывод из запоя, снятие похмелья
-              и ломки
+              и ломки.{" "}
+              <Link href="/narkolog-na-dom" className={styles.bannerLink}>
+                Подробнее о выезде
+              </Link>
             </p>
           </div>
         </div>
@@ -81,28 +88,45 @@ export default function Services() {
         </div>
 
         <ul className={styles.grid}>
-          {services.map((item, index) => (
-            <li
-              key={item.id}
-              className={styles.card}
-              style={{ animationDelay: `${index * 0.08}s` }}
-            >
-              <div className={styles.cardTop}>
-                <span className={styles.number}>
-                  {String(item.id).padStart(2, "0")}
-                </span>
-                <span className={styles.price}>{item.price}</span>
-              </div>
-              <h3 className={styles.cardTitle}>
-                {item.title}
-                {"subtitle" in item && item.subtitle ? (
-                  <span className={styles.cardSubtitle}> ({item.subtitle})</span>
+          {services.map((item, index) => {
+            const body = (
+              <>
+                <div className={styles.cardTop}>
+                  <span className={styles.number}>
+                    {String(item.id).padStart(2, "0")}
+                  </span>
+                  <span className={styles.price}>{item.price}</span>
+                </div>
+                <h3 className={styles.cardTitle}>
+                  {item.title}
+                  {"subtitle" in item && item.subtitle ? (
+                    <span className={styles.cardSubtitle}> ({item.subtitle})</span>
+                  ) : null}
+                </h3>
+                <p className={styles.cardDescription}>{item.description}</p>
+                {"href" in item && item.href ? (
+                  <span className={styles.cardMore}>Подробнее →</span>
                 ) : null}
-              </h3>
-              <p className={styles.cardDescription}>{item.description}</p>
-              <div className={styles.cardLine} />
-            </li>
-          ))}
+                <div className={styles.cardLine} />
+              </>
+            );
+
+            return (
+              <li
+                key={item.id}
+                className={styles.card}
+                style={{ animationDelay: `${index * 0.08}s` }}
+              >
+                {"href" in item && item.href ? (
+                  <Link href={item.href} className={styles.cardLink}>
+                    {body}
+                  </Link>
+                ) : (
+                  body
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

@@ -65,6 +65,17 @@
   line-height: 1.5;
 }
 
+.bannerLink {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.bannerLink:hover {
+  color: var(--color-accent-light);
+}
+
 .header {
   text-align: center;
   margin-bottom: var(--spacing-xl);
@@ -116,8 +127,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-lg);
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -128,6 +137,27 @@
   transition: border-color var(--transition-normal),
     box-shadow var(--transition-normal),
     transform var(--transition-normal);
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  height: 100%;
+  padding: var(--spacing-lg);
+  color: inherit;
+}
+
+.card:not(:has(.cardLink)) {
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+}
+
+.cardMore {
+  margin-top: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
 }
 
 .card::before {

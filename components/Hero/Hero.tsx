@@ -7,11 +7,14 @@ export default function Hero() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.textBlock}>
-            <h1 className={styles.name}>
-              Олег Бекоев
+            <h1 className={styles.heading}>
+              <span className={styles.name}>Олег Бекоев</span>
+              <span className={styles.tagline}>
+                Психиатр и нарколог во Владикавказе
+              </span>
             </h1>
             <p className={styles.specialty}>
-              Врач-психиатр-нарколог
+              Выезд на дом 24/7, вывод из запоя, кодирование и консультации
             </p>
             <a
               href={PHONE_TEL}

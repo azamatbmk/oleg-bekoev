@@ -32,13 +32,28 @@
   z-index: 2;
 }
 
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
 .name {
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   line-height: 1.1;
   color: var(--color-text);
   letter-spacing: -0.02em;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.tagline {
+  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
+  max-width: 28rem;
 }
 
 .specialty {
