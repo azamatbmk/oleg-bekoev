@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import PhoneLink from "@/components/PhoneLink/PhoneLink";
 import styles from "./Book.module.css";
-import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/phone";
+import { MetrikaGoals, reachGoal } from "@/lib/metrika";
+import { PHONE_DISPLAY } from "@/lib/phone";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/social";
 import { submitContact } from "@/lib/submitContact";
 
@@ -42,6 +44,7 @@ export default function Book() {
         return;
       }
 
+      reachGoal(MetrikaGoals.formSubmit);
       setIsSubmitted(true);
       setFormData({ name: "", phone: "", message: "" });
       setTimeout(() => setIsSubmitted(false), 8000);
@@ -69,9 +72,12 @@ export default function Book() {
             <div className={styles.contacts}>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Телефон</span>
-                <a href={PHONE_TEL} className={styles.contactValue}>
+                <PhoneLink
+                  className={styles.contactValue}
+                  goalParams={{ place: "book" }}
+                >
                   {PHONE_DISPLAY}
-                </a>
+                </PhoneLink>
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Электронная почта</span>

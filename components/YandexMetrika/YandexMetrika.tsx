@@ -1,6 +1,5 @@
 import Script from "next/script";
-
-const METRIKA_ID = 111010104;
+import { METRIKA_ID } from "@/lib/metrika";
 
 export default function YandexMetrika() {
   return (

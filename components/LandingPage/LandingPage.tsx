@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Book from "@/components/Book/Book";
+import PhoneLink from "@/components/PhoneLink/PhoneLink";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
 import type { LandingPageData } from "@/lib/landings";
-import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/phone";
+import { PHONE_DISPLAY } from "@/lib/phone";
 import { SITE_URL } from "@/lib/site";
 import styles from "./LandingPage.module.css";
 
@@ -58,9 +59,12 @@ export default function LandingPage({ data }: Props) {
               Стоимость: <strong>{data.price}</strong>
             </p>
             <div className={styles.actions}>
-              <a href={PHONE_TEL} className={styles.primaryButton}>
+              <PhoneLink
+                className={styles.primaryButton}
+                goalParams={{ place: "landing", page: data.slug }}
+              >
                 Позвонить {PHONE_DISPLAY}
-              </a>
+              </PhoneLink>
               <a href="#book" className={styles.secondaryButton}>
                 Оставить заявку
               </a>
