@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import JsonLd from "@/components/JsonLd/JsonLd";
+import YandexMetrika from "@/components/YandexMetrika/YandexMetrika";
 import {
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
@@ -71,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={inter.variable}>
       <body>
+        <YandexMetrika />
         <JsonLd />
         {children}
       </body>
