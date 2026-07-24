@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://doctor-bekoev.ru
+Sitemap: https://doctor-bekoev.ru/sitemap.xml
