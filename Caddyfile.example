@@ -1,0 +1,19 @@
+# Пример для Caddy (Timeweb и др.): несуществующие URL → 404.html со статусом 404.
+# Без этого при «SPA / fallback на index» Яндекс видит мягкие 404 (код 200).
+#
+# Подставьте путь к папке out/ (или корню статики) и свой домен.
+
+# doctor-bekoev.ru {
+#   root * /path/to/out
+#   encode gzip
+#   try_files {path} {path}/ /404.html
+#   file_server
+#
+#   handle_errors {
+#     @404 {
+#       expression {err.status_code} == 404
+#     }
+#     rewrite @404 /404.html
+#     file_server
+#   }
+# }

@@ -62,6 +62,13 @@ export const metadata: Metadata = {
   verification: {
     yandex: "bc95254fc56ec499",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon-120.png", sizes: "120x120", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

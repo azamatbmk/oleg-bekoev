@@ -8,7 +8,7 @@ const data = getLanding("narkolog-na-dom")!;
 export const metadata: Metadata = {
   title: data.title,
   description: data.description,
-  alternates: { canonical: `/${data.slug}` },
+  alternates: { canonical: `/${data.slug}/` },
   openGraph: {
     title: data.title,
     description: data.description,
