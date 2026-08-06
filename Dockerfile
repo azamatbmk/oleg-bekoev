@@ -20,5 +20,7 @@ FROM caddy:2-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=build /app/out /srv
 
-EXPOSE 80
+# Timeweb App Platform проксирует на порт из EXPOSE (по умолчанию 8080)
+ENV PORT=8080
+EXPOSE 8080
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
