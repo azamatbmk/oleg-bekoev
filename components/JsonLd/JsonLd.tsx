@@ -37,10 +37,24 @@ export default function JsonLd() {
           addressRegion: REGION,
           addressCountry: "RU",
         },
-        areaServed: {
-          "@type": "City",
-          name: CITY,
-        },
+        areaServed: [
+          { "@type": "City", name: CITY },
+          { "@type": "AdministrativeArea", name: REGION },
+        ],
+        availableService: [
+          {
+            "@type": "MedicalProcedure",
+            name: "Нарколог на дом",
+          },
+          {
+            "@type": "MedicalProcedure",
+            name: "Вывод из запоя",
+          },
+          {
+            "@type": "MedicalProcedure",
+            name: "Кодирование от алкоголя",
+          },
+        ],
         medicalSpecialty: [
           "Psychiatric",
           "Addiction Medicine",

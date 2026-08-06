@@ -102,6 +102,19 @@ export default function LandingPage({ data }: Props) {
             </div>
           </section>
 
+          <section className={styles.related} aria-labelledby="related-title">
+            <h2 id="related-title" className={styles.sectionTitle}>
+              Связанные услуги
+            </h2>
+            <ul className={styles.relatedList}>
+              {data.related.map((item) => (
+                <li key={item.slug}>
+                  <Link href={`/${item.slug}/`}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           <p className={styles.back}>
             <Link href="/#services">Все услуги на главной</Link>
           </p>

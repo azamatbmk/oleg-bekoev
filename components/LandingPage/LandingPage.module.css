@@ -199,6 +199,35 @@
   color: var(--color-text-muted);
 }
 
+.related {
+  margin-bottom: var(--spacing-xl);
+}
+
+.relatedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.relatedList a {
+  display: inline-flex;
+  padding: 0.65rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.relatedList a:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 .back {
   font-size: 0.95rem;
 }

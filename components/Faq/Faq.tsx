@@ -17,11 +17,11 @@ export default function Faq() {
         <div className={styles.header}>
           <span className={styles.label}>Вопросы и ответы</span>
           <h2 className={styles.title}>
-            Частые вопросы о <em>приёме и помощи</em>
+            Частые вопросы о <em>наркологе и психиатре</em>
           </h2>
           <p className={styles.subtitle}>
-            Ответы о вызове нарколога на дом, выводе из запоя, кодировании и
-            записи к психиатру во Владикавказе.
+            Вызов на дом, вывод из запоя, кодирование и запись на приём во
+            Владикавказе.
           </p>
         </div>
 

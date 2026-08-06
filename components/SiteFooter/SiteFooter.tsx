@@ -9,8 +9,8 @@ export default function SiteFooter() {
       <div className={styles.inner}>
         <nav className={styles.links} aria-label="Услуги">
           {landings.map((page) => (
-            <Link key={page.slug} href={`/${page.slug}`} className={styles.link}>
-              {page.h1}
+            <Link key={page.slug} href={`/${page.slug}/`} className={styles.link}>
+              {page.navLabel}
             </Link>
           ))}
         </nav>
