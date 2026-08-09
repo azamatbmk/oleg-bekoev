@@ -176,7 +176,7 @@ export default function Book() {
                     onChange={handleChange}
                     rows={4}
                     className={styles.formTextarea}
-                    placeholder="Кратко опишите запрос (без лишних медподробностей, если не хотите)"
+                    placeholder="Кратко опишите запрос (без лишних медицинских подробностей, если не хотите)"
                   />
                 </div>
 
@@ -188,7 +188,7 @@ export default function Book() {
                     required
                   />
                   <span>
-                    Согласен(на) на обработку персональных данных и принимаю{" "}
+                    Согласен / согласна на обработку персональных данных и принимаю{" "}
                     <a
                       href="/politika-konfidencialnosti/"
                       onClick={(e) => e.stopPropagation()}

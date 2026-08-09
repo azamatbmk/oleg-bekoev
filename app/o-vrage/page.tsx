@@ -72,8 +72,8 @@ export default function DoctorPage() {
             <span className={styles.label}>Врач</span>
             <h1 className={styles.title}>{DOCTOR.fullName}</h1>
             <p className={styles.lead}>
-              {DOCTOR.specialty}. Приём и выездная помощь во {DOCTOR.city} и{" "}
-              {DOCTOR.region}.
+              {DOCTOR.specialty}. Приём и выездная помощь во{" "}
+              {DOCTOR.cityLocative} и в РСО-Алании (Северная Осетия).
             </p>
           </header>
 
@@ -98,8 +98,8 @@ export default function DoctorPage() {
               ))}
             </ul>
             <p className={styles.note}>
-              Диплом и аккредитация подтверждаются Минздравом России. Сканы
-              документов можно разместить на сайте после предоставления файлов.
+              Диплом и аккредитация подтверждаются Минздравом России. Копии
+              документов предоставляются по запросу на консультации.
             </p>
           </section>
 
@@ -118,9 +118,9 @@ export default function DoctorPage() {
             <p>{DOCTOR.legal.license}</p>
             <p>{DOCTOR.legal.address}</p>
             <p className={styles.note}>
-              Для полной прозрачности платных медуслуг нужны реквизиты исполнителя
-              и номер лицензии — пришлите их, и блок станет конкретным, без
-              общих формулировок.
+              Реквизиты исполнителя и номер лицензии уточняйте по телефону или на
+              консультации — после подтверждения документов они будут указаны на
+              этой странице.
             </p>
           </section>
 

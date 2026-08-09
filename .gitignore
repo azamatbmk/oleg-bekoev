@@ -22,3 +22,9 @@ Thumbs.db
 # Семантика / выгрузки конкурентов — не отдавать с сайта
 public/*.pdf
 *.pdf
+
+# Portable FFmpeg и тяжёлые исходники видео
+.tools/
+source-videos/
+public/videos/*.MOV
+public/videos/*.mov

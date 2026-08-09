@@ -9,7 +9,8 @@ export default function About() {
         <div className={styles.header}>
           <span className={styles.label}>Образование и опыт</span>
           <h2 className={styles.title}>
-            {DOCTOR.fullName} — {DOCTOR.specialty} во {DOCTOR.city}
+            {DOCTOR.fullName} — {DOCTOR.specialty} во{" "}
+            {DOCTOR.cityLocative}
           </h2>
           <p className={styles.intro}>
             {DOCTOR.experienceNote} Консультации, выезд на дом и лечение
@@ -37,10 +38,10 @@ export default function About() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <h3 className={styles.institution}>
-                Подтверждение диплома и аккредитации — Минздравом России
+                Диплом и аккредитация подтверждены Минздравом России
               </h3>
               <p className={styles.description}>
-                Документы можно разместить на сайте после предоставления сканов.
+                Копии документов предоставляются по запросу на консультации.
               </p>
             </div>
           </div>

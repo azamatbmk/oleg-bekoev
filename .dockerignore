@@ -10,3 +10,7 @@ node_modules
 dist
 agent-transcripts
 .cursor
+.tools
+source-videos
+public/videos/*.MOV
+public/videos/*.mov

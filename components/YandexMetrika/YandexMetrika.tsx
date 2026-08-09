@@ -13,9 +13,8 @@ export default function YandexMetrika() {
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${METRIKA_ID}', 'ym');
         ym(${METRIKA_ID}, 'init', {
           ssr: true,
-          webvisor: true,
+          webvisor: false,
           clickmap: true,
-          ecommerce: "dataLayer",
           accurateTrackBounce: true,
           trackLinks: true
         });
