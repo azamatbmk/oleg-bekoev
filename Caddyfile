@@ -2,11 +2,11 @@
 	auto_https off
 }
 
-:{$PORT:8080} {
+# Timeweb иногда проксирует на 80, иногда на 8080 — слушаем оба
+:80, :8080 {
 	root * /srv
 	encode gzip zstd
 
-	# Статический MPA: только реальные файлы/папки, без fallback на index.html
 	try_files {path} {path}/ =404
 	file_server
 
