@@ -12,6 +12,7 @@ export default function Book() {
     name: "",
     phone: "",
     message: "",
+    website: "",
   });
   const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,10 +42,20 @@ export default function Book() {
     setIsSubmitting(true);
 
     try {
+      // Honeypot: не шлём заявку и не бьём цель Метрики
+      if (formData.website.trim()) {
+        setIsSubmitted(true);
+        setFormData({ name: "", phone: "", message: "", website: "" });
+        setConsent(false);
+        setTimeout(() => setIsSubmitted(false), 8000);
+        return;
+      }
+
       const result = await submitContact({
         name: formData.name.trim(),
         phone: formData.phone.trim(),
         message: formData.message.trim(),
+        website: formData.website,
       });
 
       if (!result.ok) {
@@ -54,7 +65,7 @@ export default function Book() {
 
       reachGoal(MetrikaGoals.formSubmit);
       setIsSubmitted(true);
-      setFormData({ name: "", phone: "", message: "" });
+      setFormData({ name: "", phone: "", message: "", website: "" });
       setConsent(false);
       setTimeout(() => setIsSubmitted(false), 8000);
     } catch {
@@ -133,6 +144,19 @@ export default function Book() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.honeypot} aria-hidden="true">
+                  <label htmlFor="website">Сайт</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    value={formData.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className={styles.formGroup}>
                   <label htmlFor="name" className={styles.formLabel}>
                     Ваше имя
@@ -144,8 +168,10 @@ export default function Book() {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    maxLength={80}
                     className={styles.formInput}
                     placeholder="Иван Иванов"
+                    autoComplete="name"
                   />
                 </div>
 
@@ -160,8 +186,10 @@ export default function Book() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
+                    maxLength={32}
                     className={styles.formInput}
                     placeholder="+7 (988) 877-49-92"
+                    autoComplete="tel"
                   />
                 </div>
 
@@ -175,6 +203,7 @@ export default function Book() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
+                    maxLength={2000}
                     className={styles.formTextarea}
                     placeholder="Кратко опишите запрос (без лишних медицинских подробностей, если не хотите)"
                   />

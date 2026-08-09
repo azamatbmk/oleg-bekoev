@@ -90,14 +90,6 @@
   background-color: #000;
 }
 
-.cardTitle {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--color-text);
-  line-height: 1.4;
-  padding: 0 var(--spacing-xs);
-}
-
 .empty {
   text-align: center;
   padding: var(--spacing-xl);

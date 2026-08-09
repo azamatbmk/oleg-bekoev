@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/unbounded";
 import JsonLd from "@/components/JsonLd/JsonLd";
 import YandexMetrika from "@/components/YandexMetrika/YandexMetrika";
 import {

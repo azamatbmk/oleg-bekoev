@@ -13,8 +13,9 @@
   --color-accent-soft: rgba(8, 195, 220, 0.14);
   --color-accent-glow: rgba(8, 195, 220, 0.28);
 
-  --font-main: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue",
-    Arial, "Noto Sans", "Noto Sans Cyrillic", sans-serif;
+  /* Manrope — текст; Unbounded — бренд и заголовки (self-host, кириллица) */
+  --font-main: "Manrope Variable", Manrope, system-ui, sans-serif;
+  --font-display: "Unbounded Variable", Unbounded, system-ui, sans-serif;
 
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -46,9 +47,19 @@ body {
   font-family: var(--font-main);
   background-color: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  font-weight: 600;
 }
 
 a {

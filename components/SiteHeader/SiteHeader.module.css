@@ -18,9 +18,10 @@
 }
 
 .brand {
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.95rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--color-text);
   white-space: nowrap;
 }

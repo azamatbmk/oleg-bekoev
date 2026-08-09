@@ -92,11 +92,12 @@
 }
 
 .title {
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 3.5vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -202,10 +203,12 @@
 }
 
 .cardTitle {
+  font-family: var(--font-main);
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.35;
+  letter-spacing: -0.015em;
 }
 
 .cardSubtitle {

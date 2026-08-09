@@ -2,6 +2,8 @@ export type ContactPayload = {
   name: string;
   phone: string;
   message: string;
+  /** Honeypot: если заполнено — бот */
+  website?: string;
 };
 
 export type SubmitResult =
@@ -11,42 +13,32 @@ export type SubmitResult =
 const FORM_EMAIL = "Bekoev_2003@mail.ru";
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
 
-/** Локально: SMTP через /api/contact */
-async function submitViaApi(payload: ContactPayload): Promise<SubmitResult | null> {
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+const NAME_MAX = 80;
+const PHONE_MAX = 32;
+const MESSAGE_MAX = 2000;
 
-    const isJson = (res.headers.get("content-type") ?? "").includes(
-      "application/json",
-    );
-    if (!isJson) {
-      return null;
-    }
-
-    const data = (await res.json().catch(() => ({}))) as {
-      ok?: boolean;
-      error?: string;
-    };
-
-    if (res.ok && data.ok === true) {
-      return { ok: true };
-    }
-
-    if (data.error && res.status >= 400) {
-      return { ok: false, error: data.error };
-    }
-
-    return null;
-  } catch {
-    return null;
-  }
+function sanitizeSubjectPart(value: string): string {
+  return value.replace(/[\r\n\t]+/g, " ").trim().slice(0, NAME_MAX);
 }
 
-/** Продакшен на статике (Timeweb) */
+function validatePayload(
+  payload: ContactPayload,
+): { ok: true; data: ContactPayload } | { ok: false; error: string } {
+  const name = sanitizeSubjectPart(payload.name);
+  const phone = payload.phone.replace(/[\r\n\t]+/g, " ").trim().slice(0, PHONE_MAX);
+  const message = payload.message.trim().slice(0, MESSAGE_MAX);
+
+  if (!name || name.length < 2) {
+    return { ok: false, error: "Укажите имя." };
+  }
+  if (!phone || phone.replace(/\D/g, "").length < 10) {
+    return { ok: false, error: "Укажите корректный телефон." };
+  }
+
+  return { ok: true, data: { name, phone, message, website: payload.website } };
+}
+
+/** Продакшен на статике (Timeweb) — Web3Forms */
 async function submitViaWeb3Forms(
   payload: ContactPayload,
 ): Promise<SubmitResult | null> {
@@ -67,7 +59,8 @@ async function submitViaWeb3Forms(
       name: payload.name,
       phone: payload.phone,
       message: payload.message || "—",
-      botcheck: false,
+      // Honeypot Web3Forms: пустое = человек; заполненное = спам
+      botcheck: "",
     }),
   });
 
@@ -88,35 +81,34 @@ async function submitViaWeb3Forms(
   };
 }
 
+/** Fallback без ключа Web3Forms */
 async function submitViaFormSubmit(
   payload: ContactPayload,
 ): Promise<SubmitResult> {
-  const res = await fetch(
-    `https://formsubmit.co/ajax/${FORM_EMAIL}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        name: payload.name,
-        phone: payload.phone,
-        message: payload.message || "—",
-        _subject: `Заявка с сайта: ${payload.name}`,
-        _captcha: "false",
-      }),
+  const res = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
-  );
+    body: JSON.stringify({
+      name: payload.name,
+      phone: payload.phone,
+      message: payload.message || "—",
+      _subject: `Заявка с сайта: ${payload.name}`,
+      // Honeypot FormSubmit
+      _honey: "",
+      // AJAX без редиректа на их captcha-страницу; защита — honeypot + клиентский
+      _captcha: "false",
+    }),
+  });
 
   const data = (await res.json().catch(() => ({}))) as {
     success?: string | boolean;
     message?: string;
   };
 
-  const success =
-    data.success === true ||
-    data.success === "true";
+  const success = data.success === true || data.success === "true";
 
   if (res.ok && success) {
     return { ok: true };
@@ -134,17 +126,22 @@ async function submitViaFormSubmit(
 export async function submitContact(
   payload: ContactPayload,
 ): Promise<SubmitResult> {
+  // Клиентский honeypot: боты часто заполняют скрытое поле
+  if (payload.website?.trim()) {
+    return { ok: true };
+  }
+
+  const validated = validatePayload(payload);
+  if (!validated.ok) {
+    return validated;
+  }
+
   if (WEB3FORMS_KEY) {
-    const web3 = await submitViaWeb3Forms(payload);
+    const web3 = await submitViaWeb3Forms(validated.data);
     if (web3) {
       return web3;
     }
   }
 
-  const apiResult = await submitViaApi(payload);
-  if (apiResult) {
-    return apiResult;
-  }
-
-  return submitViaFormSubmit(payload);
+  return submitViaFormSubmit(validated.data);
 }
