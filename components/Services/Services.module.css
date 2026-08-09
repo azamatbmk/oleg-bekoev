@@ -97,7 +97,7 @@
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-text);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.015em;
   max-width: 720px;
   margin: 0 auto;
 }

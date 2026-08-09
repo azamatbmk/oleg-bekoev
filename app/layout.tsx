@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/manrope";
-import "@fontsource-variable/unbounded";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource/cormorant-garamond/700.css";
+import "@fontsource/cormorant-garamond/500-italic.css";
 import JsonLd from "@/components/JsonLd/JsonLd";
 import YandexMetrika from "@/components/YandexMetrika/YandexMetrika";
 import {

@@ -13,9 +13,9 @@
   --color-accent-soft: rgba(8, 195, 220, 0.14);
   --color-accent-glow: rgba(8, 195, 220, 0.28);
 
-  /* Manrope — текст; Unbounded — бренд и заголовки (self-host, кириллица) */
+  /* Manrope — текст; Cormorant Garamond — бренд и заголовки */
   --font-main: "Manrope Variable", Manrope, system-ui, sans-serif;
-  --font-display: "Unbounded Variable", Unbounded, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -57,8 +57,8 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
   font-weight: 600;
 }
 
