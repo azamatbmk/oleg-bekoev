@@ -15,7 +15,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className={styles.specialty}>
-              Выезд на дом 24/7, вывод из запоя, кодирование
+              На дом 24/7, вывод из запоя, кодирование, лечение алкоголизма
             </p>
             <PhoneLink
               className={styles.callButton}

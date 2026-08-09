@@ -6,10 +6,12 @@ import VideoReviews from "@/components/VideoReviews/VideoReviews";
 import Book from "@/components/Book/Book";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import SiteHeader from "@/components/SiteHeader/SiteHeader";
+import HomeFaqJsonLd from "@/components/JsonLd/HomeFaqJsonLd";
 
 export default function Home() {
   return (
     <main>
+      <HomeFaqJsonLd />
       <SiteHeader />
       <Hero />
       <Services />
@@ -20,4 +22,4 @@ export default function Home() {
       <SiteFooter />
     </main>
   );
-};
+}

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     url: SITE_URL,
-    siteName: "Олег Бекоев — врач-психиатр, нарколог",
+    siteName: "Олег Бекоев — нарколог, психиатр",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [

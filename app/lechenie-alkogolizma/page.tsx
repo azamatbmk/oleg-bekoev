@@ -3,7 +3,7 @@ import LandingPage from "@/components/LandingPage/LandingPage";
 import { getLanding } from "@/lib/landings";
 import { landingMetadata } from "@/lib/landingMetadata";
 
-const data = getLanding("kodirovanie")!;
+const data = getLanding("lechenie-alkogolizma")!;
 
 export const metadata: Metadata = landingMetadata(data);
 

@@ -13,6 +13,7 @@ type Props = {
 };
 
 export default function LandingPage({ data }: Props) {
+  const pageUrl = `${SITE_URL}/${data.slug}/`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -20,7 +21,24 @@ export default function LandingPage({ data }: Props) {
         "@type": "MedicalWebPage",
         name: data.h1,
         description: data.description,
-        url: `${SITE_URL}/${data.slug}`,
+        url: pageUrl,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Главная",
+            item: `${SITE_URL}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: data.h1,
+            item: pageUrl,
+          },
+        ],
       },
       {
         "@type": "FAQPage",
@@ -40,7 +58,9 @@ export default function LandingPage({ data }: Props) {
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
       <SiteHeader homeLinks />
       <article className={styles.page}>
@@ -72,8 +92,8 @@ export default function LandingPage({ data }: Props) {
           </header>
 
           <div className={styles.body}>
-            {data.paragraphs.map((text) => (
-              <p key={text.slice(0, 40)}>{text}</p>
+            {data.paragraphs.map((text, index) => (
+              <p key={`${data.slug}-p-${index}`}>{text}</p>
             ))}
           </div>
 

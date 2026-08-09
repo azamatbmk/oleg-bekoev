@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
 import LandingPage from "@/components/LandingPage/LandingPage";
 import { getLanding } from "@/lib/landings";
-import { SITE_URL } from "@/lib/site";
+import { landingMetadata } from "@/lib/landingMetadata";
 
 const data = getLanding("narkolog-na-dom")!;
 
-export const metadata: Metadata = {
-  title: data.title,
-  description: data.description,
-  alternates: { canonical: `/${data.slug}/` },
-  openGraph: {
-    title: data.title,
-    description: data.description,
-    url: `${SITE_URL}/${data.slug}`,
-    type: "website",
-    locale: "ru_RU",
-  },
-};
+export const metadata: Metadata = landingMetadata(data);
 
 export default function Page() {
   return <LandingPage data={data} />;

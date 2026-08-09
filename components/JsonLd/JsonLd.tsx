@@ -10,6 +10,7 @@ import {
 } from "@/lib/site";
 import { INSTAGRAM_URL } from "@/lib/social";
 
+/** Sitewide schema (без FAQ — FAQ только на главной / посадочных) */
 export default function JsonLd() {
   const data = {
     "@context": "https://schema.org",
@@ -42,18 +43,10 @@ export default function JsonLd() {
           { "@type": "AdministrativeArea", name: REGION },
         ],
         availableService: [
-          {
-            "@type": "MedicalProcedure",
-            name: "Нарколог на дом",
-          },
-          {
-            "@type": "MedicalProcedure",
-            name: "Вывод из запоя",
-          },
-          {
-            "@type": "MedicalProcedure",
-            name: "Кодирование от алкоголя",
-          },
+          { "@type": "MedicalProcedure", name: "Нарколог на дом" },
+          { "@type": "MedicalProcedure", name: "Вывод из запоя" },
+          { "@type": "MedicalProcedure", name: "Кодирование от алкоголя" },
+          { "@type": "MedicalProcedure", name: "Лечение алкоголизма" },
         ],
         medicalSpecialty: [
           "Psychiatric",
@@ -62,25 +55,15 @@ export default function JsonLd() {
         ],
         sameAs: [INSTAGRAM_URL],
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${SITE_URL}/#faq`,
-        mainEntity: faqItems.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
-      },
     ],
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }
