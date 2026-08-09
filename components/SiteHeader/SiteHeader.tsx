@@ -2,19 +2,18 @@ import Link from "next/link";
 import styles from "./SiteHeader.module.css";
 
 type Props = {
-  /** Ссылки на якоря с префиксом / — для посадочных страниц */
+  /** Ссылки с главной (/#...) — для внутренних страниц */
   homeLinks?: boolean;
 };
 
-const sectionLinks = [
-  { hash: "services", label: "Услуги" },
-  { hash: "about", label: "О враче" },
-  { hash: "faq", label: "Вопросы" },
-  { hash: "videos", label: "Методики" },
-  { hash: "book", label: "Запись" },
-] as const;
-
 export default function SiteHeader({ homeLinks = false }: Props) {
+  const links = [
+    { href: homeLinks ? "/#services" : "#services", label: "Услуги" },
+    { href: "/o-vrage/", label: "О враче" },
+    { href: homeLinks ? "/#faq" : "#faq", label: "Вопросы" },
+    { href: homeLinks ? "/#book" : "#book", label: "Запись" },
+  ] as const;
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -22,14 +21,10 @@ export default function SiteHeader({ homeLinks = false }: Props) {
           Олег Бекоев
         </Link>
         <nav className={styles.nav} aria-label="Разделы сайта">
-          {sectionLinks.map(({ hash, label }) => (
-            <a
-              key={hash}
-              href={homeLinks ? `/#${hash}` : `#${hash}`}
-              className={styles.link}
-            >
+          {links.map(({ href, label }) => (
+            <Link key={label} href={href} className={styles.link}>
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

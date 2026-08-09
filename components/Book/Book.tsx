@@ -5,7 +5,6 @@ import PhoneLink from "@/components/PhoneLink/PhoneLink";
 import styles from "./Book.module.css";
 import { MetrikaGoals, reachGoal } from "@/lib/metrika";
 import { PHONE_DISPLAY } from "@/lib/phone";
-import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/social";
 import { submitContact } from "@/lib/submitContact";
 
 export default function Book() {
@@ -14,6 +13,7 @@ export default function Book() {
     phone: "",
     message: "",
   });
+  const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -30,6 +30,14 @@ export default function Book() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
+
+    if (!consent) {
+      setSubmitError(
+        "Нужно согласие на обработку персональных данных.",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -47,6 +55,7 @@ export default function Book() {
       reachGoal(MetrikaGoals.formSubmit);
       setIsSubmitted(true);
       setFormData({ name: "", phone: "", message: "" });
+      setConsent(false);
       setTimeout(() => setIsSubmitted(false), 8000);
     } catch {
       setSubmitError("Нет соединения с сервером. Проверьте интернет.");
@@ -89,20 +98,21 @@ export default function Book() {
                 </a>
               </div>
               <div className={styles.contactItem}>
-                <span className={styles.contactLabel}>Город</span>
+                <span className={styles.contactLabel}>Город / зона</span>
                 <span className={styles.contactValue}>
-                  Владикавказ
+                  Владикавказ и РСО-Алания (выезд)
                 </span>
               </div>
               <div className={styles.contactItem}>
-                <span className={styles.contactLabel}>Другие соцсети</span>
-                <a
-                  href={INSTAGRAM_URL}
-                  className={styles.contactValue}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @{INSTAGRAM_HANDLE}
+                <span className={styles.contactLabel}>График</span>
+                <span className={styles.contactValue}>
+                  Выезд 24/7 · приём по записи
+                </span>
+              </div>
+              <div className={styles.contactItem}>
+                <span className={styles.contactLabel}>О враче</span>
+                <a href="/o-vrage/" className={styles.contactValue}>
+                  Бекоев Олег Альбертович
                 </a>
               </div>
             </div>
@@ -166,9 +176,27 @@ export default function Book() {
                     onChange={handleChange}
                     rows={4}
                     className={styles.formTextarea}
-                    placeholder="Опишите вашу ситуацию..."
+                    placeholder="Кратко опишите запрос (без лишних медподробностей, если не хотите)"
                   />
                 </div>
+
+                <label className={styles.consent}>
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    required
+                  />
+                  <span>
+                    Согласен(на) на обработку персональных данных и принимаю{" "}
+                    <a
+                      href="/politika-konfidencialnosti/"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      политику конфиденциальности
+                    </a>
+                  </span>
+                </label>
 
                 {submitError ? (
                   <p className={styles.formError} role="alert">
@@ -178,7 +206,7 @@ export default function Book() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !consent}
                   className={styles.submitButton}
                 >
                   {isSubmitting ? (

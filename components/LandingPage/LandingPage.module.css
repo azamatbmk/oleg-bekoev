@@ -126,6 +126,26 @@
   color: var(--color-text-muted);
 }
 
+.expert {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.expertText {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-md);
+}
+
+.disclaimer {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-text-dim);
+}
+
 .sectionTitle {
   font-size: clamp(1.35rem, 3vw, 1.75rem);
   font-weight: 700;

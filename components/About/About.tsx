@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { DOCTOR } from "@/lib/doctor";
 import styles from "./About.module.css";
 
 export default function About() {
@@ -7,39 +9,29 @@ export default function About() {
         <div className={styles.header}>
           <span className={styles.label}>Образование и опыт</span>
           <h2 className={styles.title}>
-            Специалист в современной наркологии. Опыт работы <em>более 5 лет</em> с различными степенями тяжести алкоголизма и наркомании.
+            {DOCTOR.fullName} — {DOCTOR.specialty} во {DOCTOR.city}
           </h2>
           <p className={styles.intro}>
-            Олег Бекоев — врач-психиатр, нарколог и психотерапевт во Владикавказе
-            и Северной Осетии. Консультации, выезд на дом и лечение зависимостей,
-            тревожных и депрессивных состояний.
+            {DOCTOR.experienceNote} Консультации, выезд на дом и лечение
+            зависимостей, тревожных и депрессивных состояний.
+          </p>
+          <p className={styles.intro}>
+            <Link href="/o-vrage/" className={styles.moreLink}>
+              Полная страница врача, график и сведения об исполнителе →
+            </Link>
           </p>
         </div>
 
         <div className={styles.timeline}>
-          <div className={styles.timelineItem}>
-            <div className={styles.timelineDot} />
-            <div className={styles.timelineContent}>
-              <h3 className={styles.institution}>
-                ФГБУ «НМИЦ психиатрии и наркологии им. В.П. Сербского», г. Москва
-              </h3>
-              <p className={styles.description}>
-                Прошёл обучение по программе ординатуры на кафедре психиатрии и наркологии
-              </p>
+          {DOCTOR.education.map((item) => (
+            <div key={item.place} className={styles.timelineItem}>
+              <div className={styles.timelineDot} />
+              <div className={styles.timelineContent}>
+                <h3 className={styles.institution}>{item.place}</h3>
+                <p className={styles.description}>{item.detail}</p>
+              </div>
             </div>
-          </div>
-
-          <div className={styles.timelineItem}>
-            <div className={styles.timelineDot} />
-            <div className={styles.timelineContent}>
-              <h3 className={styles.institution}>
-                Северо-Осетинская государственная медицинская академия, г. Владикавказ
-              </h3>
-              <p className={styles.description}>
-                Окончил с отличием, получил фундаментальную медицинскую подготовку
-              </p>
-            </div>
-          </div>
+          ))}
 
           <div className={styles.timelineItem}>
             <div className={styles.timelineDot} />
@@ -47,9 +39,9 @@ export default function About() {
               <h3 className={styles.institution}>
                 Подтверждение диплома и аккредитации — Минздравом России
               </h3>
-              {/* <p className={styles.description}>
-                Подтверждает диплом врача в странах СНГ
-              </p> */}
+              <p className={styles.description}>
+                Документы можно разместить на сайте после предоставления сканов.
+              </p>
             </div>
           </div>
 

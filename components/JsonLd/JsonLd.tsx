@@ -1,4 +1,4 @@
-import { faqItems } from "@/lib/faq";
+import { DOCTOR } from "@/lib/doctor";
 import { PHONE_E164 } from "@/lib/phone";
 import {
   CITY,
@@ -8,7 +8,6 @@ import {
   SITE_TITLE,
   SITE_URL,
 } from "@/lib/site";
-import { INSTAGRAM_URL } from "@/lib/social";
 
 /** Sitewide schema (без FAQ — FAQ только на главной / посадочных) */
 export default function JsonLd() {
@@ -26,7 +25,8 @@ export default function JsonLd() {
       {
         "@type": "Physician",
         "@id": `${SITE_URL}/#physician`,
-        name: "Олег Бекоев",
+        name: DOCTOR.fullName,
+        alternateName: DOCTOR.shortName,
         url: SITE_URL,
         image: `${SITE_URL}/images/doctor.png`,
         telephone: PHONE_E164,
@@ -47,13 +47,17 @@ export default function JsonLd() {
           { "@type": "MedicalProcedure", name: "Вывод из запоя" },
           { "@type": "MedicalProcedure", name: "Кодирование от алкоголя" },
           { "@type": "MedicalProcedure", name: "Лечение алкоголизма" },
+          {
+            "@type": "MedicalProcedure",
+            name: "Консультация психиатра-нарколога",
+          },
         ],
         medicalSpecialty: [
           "Psychiatric",
           "Addiction Medicine",
           "Psychotherapy",
         ],
-        sameAs: [INSTAGRAM_URL],
+        sameAs: [DOCTOR.profiles.instagram, DOCTOR.profiles.prodoctorov],
       },
     ],
   };

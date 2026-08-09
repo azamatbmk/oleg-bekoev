@@ -15,7 +15,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className={styles.specialty}>
-              На дом 24/7, вывод из запоя, кодирование, лечение алкоголизма
+              Бекоев Олег Альбертович · выезд 24/7 · консультации
             </p>
             <PhoneLink
               className={styles.callButton}

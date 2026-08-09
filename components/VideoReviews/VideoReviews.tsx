@@ -19,7 +19,8 @@ export default function VideoReviews() {
             Методики лечения и <em>профессиональный опыт</em>
           </h2>
           <p className={styles.subtitle}>
-            О подходе к терапии, навыках и методах работы с пациентами.
+            О подходе к терапии и методах работы. Расшифровки и дополнительные
+            ролики добавим после сжатия исходников.
           </p>
         </div>
 
@@ -38,8 +39,8 @@ export default function VideoReviews() {
                       src={item.source!.src}
                       controls
                       playsInline
-                      preload="metadata"
-                      aria-label={`Видео ${index + 1}`}
+                      preload="none"
+                      aria-label="Видео о методиках лечения"
                     />
                   ) : (
                     <iframe

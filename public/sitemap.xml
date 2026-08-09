@@ -6,6 +6,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://doctor-bekoev.ru/o-vrage/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://doctor-bekoev.ru/konsultaciya/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://doctor-bekoev.ru/narkolog-na-dom/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -24,5 +34,10 @@
     <loc>https://doctor-bekoev.ru/lechenie-alkogolizma/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://doctor-bekoev.ru/politika-konfidencialnosti/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

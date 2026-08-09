@@ -13,7 +13,8 @@
   --color-accent-soft: rgba(8, 195, 220, 0.14);
   --color-accent-glow: rgba(8, 195, 220, 0.28);
 
-  --font-main: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-main: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Noto Sans Cyrillic", sans-serif;
 
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;

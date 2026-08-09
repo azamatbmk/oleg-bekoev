@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { landings } from "@/lib/landings";
+import { DOCTOR } from "@/lib/doctor";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/social";
 import styles from "./SiteFooter.module.css";
 
@@ -14,6 +15,22 @@ export default function SiteFooter() {
             </Link>
           ))}
         </nav>
+        <nav className={styles.legal} aria-label="Информация">
+          <Link href="/o-vrage/" className={styles.link}>
+            О враче
+          </Link>
+          <Link href="/politika-konfidencialnosti/" className={styles.link}>
+            Политика конфиденциальности
+          </Link>
+          <a
+            href={DOCTOR.profiles.prodoctorov}
+            className={styles.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ПроДокторов
+          </a>
+        </nav>
         <a
           href={INSTAGRAM_URL}
           className={styles.socialLink}
@@ -23,7 +40,9 @@ export default function SiteFooter() {
         >
           @{INSTAGRAM_HANDLE}
         </a>
-        <p className={styles.copy}>© {new Date().getFullYear()} Олег Бекоев</p>
+        <p className={styles.copy}>
+          © {new Date().getFullYear()} {DOCTOR.fullName}
+        </p>
       </div>
     </footer>
   );

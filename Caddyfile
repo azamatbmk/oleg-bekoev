@@ -2,10 +2,18 @@
 	auto_https off
 }
 
-# Timeweb иногда проксирует на 80, иногда на 8080 — слушаем оба
 :80, :8080 {
 	root * /srv
 	encode gzip zstd
+
+	# www → основной домен (если Host доходит до контейнера)
+	@www host www.doctor-bekoev.ru
+	redir @www https://doctor-bekoev.ru{uri} permanent
+
+	# Дубли /index.html
+	redir /index.html / permanent
+	@nestedIndex path_regexp nested ^(.+)/index\.html$
+	redir @nestedIndex {re.nested.1}/ permanent
 
 	try_files {path} {path}/ =404
 	file_server

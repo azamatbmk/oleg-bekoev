@@ -6,13 +6,14 @@ import { SITE_URL } from "@/lib/site";
 export function landingMetadata(data: LandingPageData): Metadata {
   const path = `/${data.slug}/`;
   const url = `${SITE_URL}${path}`;
+  const fullTitle = `${data.title} | Олег Бекоев`;
 
   return {
-    title: data.title,
+    title: { absolute: fullTitle },
     description: data.description,
     alternates: { canonical: path },
     openGraph: {
-      title: data.title,
+      title: fullTitle,
       description: data.description,
       url,
       type: "website",

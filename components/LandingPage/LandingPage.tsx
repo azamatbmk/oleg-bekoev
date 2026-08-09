@@ -97,6 +97,29 @@ export default function LandingPage({ data }: Props) {
             ))}
           </div>
 
+          {data.sections.map((section, sectionIndex) => {
+            const headingId = `${data.slug}-section-${sectionIndex}`;
+            return (
+              <section
+                key={headingId}
+                className={styles.expert}
+                aria-labelledby={headingId}
+              >
+                <h2 id={headingId} className={styles.sectionTitle}>
+                  {section.title}
+                </h2>
+                {section.paragraphs.map((text, index) => (
+                  <p
+                    key={`${headingId}-p-${index}`}
+                    className={styles.expertText}
+                  >
+                    {text}
+                  </p>
+                ))}
+              </section>
+            );
+          })}
+
           <section className={styles.benefits} aria-labelledby="benefits-title">
             <h2 id="benefits-title" className={styles.sectionTitle}>
               Что входит в помощь
@@ -138,6 +161,9 @@ export default function LandingPage({ data }: Props) {
           <p className={styles.back}>
             <Link href="/#services">Все услуги на главной</Link>
           </p>
+          {data.reviewedNote ? (
+            <p className={styles.disclaimer}>{data.reviewedNote}</p>
+          ) : null}
         </div>
       </article>
       <Book />

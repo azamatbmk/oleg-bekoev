@@ -45,6 +45,11 @@
   max-width: 720px;
 }
 
+.moreLink {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
 .timeline {
   position: relative;
   padding-left: var(--spacing-xl);
