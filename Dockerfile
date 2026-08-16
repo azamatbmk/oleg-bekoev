@@ -1,5 +1,6 @@
 # Multi-stage: Next static export → Caddy (корректный HTTP 404).
 # Timeweb App Platform: тип приложения Dockerfile.
+# Важно: один порт (8080). Два EXPOSE дают ~50% 502 на балансировке.
 
 FROM node:22-alpine AS build
 WORKDIR /app
@@ -17,6 +18,5 @@ FROM caddy:2-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=build /app/out /srv
 
-# Оба порта: платформа может проксировать на любой из них
-EXPOSE 80 8080
+EXPOSE 8080
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

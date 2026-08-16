@@ -2,9 +2,14 @@
 	auto_https off
 }
 
-:80, :8080 {
+# Один порт: при EXPOSE 80 и 8080 платформа часто балансирует
+# на оба и даёт чередующиеся 502.
+:8080 {
 	root * /srv
 	encode gzip zstd
+
+	# Явный health для проб платформы
+	respond /healthz 200
 
 	# www → основной домен (если Host доходит до контейнера)
 	@www host www.doctor-bekoev.ru
@@ -14,6 +19,14 @@
 	redir /index.html / permanent
 	@nestedIndex path_regexp nested ^(.+)/index\.html$
 	redir @nestedIndex {re.nested.1}/ permanent
+
+	# URL без trailing slash → со slash (кроме файлов со своим расширением)
+	@noSlash {
+		not path */
+		not path /
+		not path *.*
+	}
+	redir @noSlash {path}/ 308
 
 	try_files {path} {path}/ =404
 	file_server
